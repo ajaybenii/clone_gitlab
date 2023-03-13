@@ -1,8 +1,10 @@
  
 import spacy
+import en_core_web_sm
 from spacy.matcher import Matcher
 
-nlp = spacy.load("en_core_web_sm", disable=['parser', 'ner'])
+nlp = en_core_web_sm.load()
+# nlp = spacy.load("en_core_web_sm", disable=['parser', 'ner'])
 
 numberMatcher = Matcher(nlp.vocab)
 numberMatcher.add("like_num",[[{"LIKE_NUM":True}, {"LIKE_NUM":True, "OP": "?"}, {"LIKE_NUM":True, "OP": "?"}, \
